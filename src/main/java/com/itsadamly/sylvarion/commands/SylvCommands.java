@@ -7,7 +7,6 @@ import com.itsadamly.sylvarion.databases.bank.SylvBankDBTasks;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
@@ -16,11 +15,10 @@ import org.bukkit.inventory.ItemStack;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 
-public class SylvCommands implements CommandExecutor, TabExecutor
+public class SylvCommands implements TabExecutor
 {
     List<String> perms = allPerms();
     List<String> commandList = commandArgs();
