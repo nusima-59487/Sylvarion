@@ -2,12 +2,13 @@ package com.itsadamly.sylvarion.commands;
 
 import com.itsadamly.sylvarion.Sylvarion;
 import com.itsadamly.sylvarion.databases.SylvDBConnect;
-import com.itsadamly.sylvarion.databases.bank.SylvBankCard;
+import com.itsadamly.sylvarion.databases.bank.BankCard;
 import com.itsadamly.sylvarion.databases.bank.SylvBankDBTasks;
 import com.itsadamly.sylvarion.events.ATM.SylvATMOperations;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -18,11 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-<<<<<<< HEAD:src/main/java/com/itsadamly/sylvarion/commands/SylvCommands.java
-public class SylvCommands implements TabExecutor
-=======
 public class SylvATMCommands implements CommandExecutor
->>>>>>> 282bddcc9b9b9b662c92f7216e2eeca7bd030913:src/main/java/com/itsadamly/sylvarion/commands/SylvATMCommands.java
 {
     List<String> perms = allPerms();
     List<String> commandList = commandArgs();
@@ -125,7 +122,7 @@ public class SylvATMCommands implements CommandExecutor
                     }
 
                     String cardID = new SylvBankDBTasks().getCardID(player.getName());
-                    ItemStack card = new SylvBankCard().createCard(player.getName(), cardID);
+                    ItemStack card = new BankCard().createCard(player, cardID);
 
                     player.getInventory().setItemInMainHand(card);
                     player.sendMessage(ChatColor.GREEN + "You have reobtained your card.");
